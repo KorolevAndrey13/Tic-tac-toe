@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Крестики-нолики</title>
+  <link rel="stylesheet" href="reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header"></header>
+
+  <section class="section_gamemode">
+    <h1>Крестики-Нолики</h1>
+    <div class="container_gamemode">
+      <button class="btn_gamemode" id="mode-pve">Игрок против ИИ</button>
+      <button class="btn_gamemode" id="mode-pvp">Игрок против Игрока</button>
+    </div>
+  </section>
+
+  <section class="section_game">
+    <div class="board" id="board"></div>
+  </section>
+
+  <section class="section_status">
+    <div class="container">
+      <p class="status" id="status"></p>
+      <button id="restart">Перезапуск</button>
+    </div>
+    
+  </section>
+
+  <section class="section_log">
+    <div class="container">
+      <h3>Log:</h3>
+      <ul id="log"></ul>
+    </div>
+  </section>
+  <footer class="footer">       
+    <div class="footer__text">
+      <span><a class="logo" href="#">АК</a></span>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+</body>
+</html>
