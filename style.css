@@ -1,0 +1,132 @@
+*,
+html,
+body {
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+    
+}
+
+body {
+  max-width: 1400px;
+  font-family: "Manrope", Helvetica, sans-serif;
+  background-color: #ebd9b7;
+  margin: 0 auto;
+}
+
+.header{
+  display: block;
+  width: 100%;
+  height: 300px;
+  background-image: url('resources/x.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+section{
+  display: block;
+  margin-bottom: 50px;
+}
+
+h1{
+  display: block;
+  padding: 30px;
+  text-align: center;
+  font-size: 60px;
+}
+
+.container .container_gamemode{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container_gamemode{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 10px;
+}
+
+.btn_gamemode{
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #fff;
+  color: black;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn_gamemode:hover{
+  border: 1px solid red;
+  transform: scale(1.1);
+  transform: 0.5s;
+}
+
+.section_game{
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+  margin: 0 auto;
+}
+
+.cell {
+  width: 100px;
+  height: 100px;
+  font-size: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: pointer;
+  border: 2px solid #333;
+}
+
+.cell:hover {
+  background-color: #ddd;
+}
+
+.section_status{
+  display: block;
+  margin: 0 auto;
+}
+
+
+
+#status {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  font-size: 1.2rem;
+}
+
+#restart {
+  display: block;
+  align-items: center;
+  margin: 15px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+#log {
+  list-style: none;
+  padding: 0;
+  max-width: 300px;
+  margin: 10px auto;
+  text-align: left;
+}
+
+.footer_text{
+  margin: 0 auto;
+}
