@@ -164,7 +164,7 @@ footer{
 a.logo{
   display: block;
   text-decoration: none;
-  width: 50px;
+  width: fit-content;
   margin: 0 auto;
   color: black;
   text-decoration: none;
