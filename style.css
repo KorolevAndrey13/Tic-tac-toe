@@ -93,9 +93,51 @@ h3{
 
 .board {
   display: grid;
+  position: relative;
   grid-template-columns: repeat(3, 100px);
   gap: 5px;
   margin: 0 auto;
+}
+
+
+.win-line {
+  position: absolute;
+  background-color: black;
+  z-index: 10;
+  border-radius: 4px;
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+
+.win-horizontal {
+  height: 4px;
+  width: 310px;
+  top: calc(33.33% * var(--row) + 50px - 2px);
+  left: 0;
+}
+
+.win-vertical {
+  width: 4px;
+  height: 310px;
+  left: calc(33.33% * var(--col) + 50px - 2px);
+  top: 0;
+}
+
+.win-diagonal1 {
+  width: 4px;
+  height: 440px;
+  transform: rotate(45deg);
+  top: -65px;
+  left: 148px;
+}
+
+.win-diagonal2 {
+  width: 4px;
+  height: 440px;
+  transform: rotate(-45deg);
+  top: -65px;
+  left: 148px;
 }
 
 .cell {
