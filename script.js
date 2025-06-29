@@ -123,10 +123,52 @@ function getBestMove(newBoard, player) {
 }
 
 function checkWin(player) {
-  return winningCombos.some(combo =>
-    combo.every(i => board[i] === player)
-  );
+  for (let combo of winningCombos) {
+    if (combo.every(i => board[i] === player)) {
+      drawWinLine(combo);
+      return true;
+    }
+  }
+  return false;
 }
+
+function drawWinLine(combo) {
+  const line = document.createElement('div');
+  line.classList.add('win-line');
+
+  const [a, b, c] = combo;
+  const lastMoveIndex = c; // победные комбинации упорядочены
+
+  if (a % 3 === 0 && b % 3 === 1 && c % 3 === 2) {
+    line.classList.add('win-horizontal');
+    line.style.setProperty('--row', Math.floor(a / 3));
+    line.style.transformOrigin = lastMoveIndex % 3 === 2 ? 'right center' : 
+                                 lastMoveIndex % 3 === 1 ? 'center center' : 'left center';
+  } else if (a < 3 && b < 6 && c < 9 && a % 3 === b % 3) {
+    line.classList.add('win-vertical');
+    line.style.setProperty('--col', a % 3);
+    line.style.transformOrigin = lastMoveIndex >= 6 ? 'center bottom' : 
+                                 lastMoveIndex >= 3 ? 'center center' : 'center top';
+  } else if (a === 0 && b === 4 && c === 8) {
+    line.classList.add('win-diagonal1');
+    line.style.transformOrigin = 'bottom right';
+  } else if (a === 2 && b === 4 && c === 6) {
+    line.classList.add('win-diagonal2');
+    line.style.transformOrigin = 'bottom left';
+  }
+
+  boardEl.appendChild(line);
+
+  requestAnimationFrame(() => {
+    if (line.classList.contains('win-horizontal') || line.classList.contains('win-vertical')) {
+      line.style.transform = 'scaleX(1)';
+    } else {
+      line.style.transform = 'scaleY(1)';
+    }
+  });
+}
+
+
 
 function checkWinner(brd, player) {
   return winningCombos.some(combo =>
@@ -148,5 +190,6 @@ function resetGame() {
   logEl.innerHTML = '';
   renderBoard();
 }
+document.querySelectorAll('.win-line').forEach(el => el.remove())
 
 restartBtn.addEventListener('click', resetGame);
